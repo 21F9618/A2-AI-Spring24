@@ -5,7 +5,7 @@ from functools import partial
 from tkinter import *
 import sys
 
-from EightPuzzle import EightPuzzle
+from lib.EightPuzzle import EightPuzzle
 
 root = Tk()
 
@@ -16,17 +16,26 @@ solution = None
 b = [None] * 9
 
 
-
 def solve():
     """
     Solves the puzzle using astar_search using puzzle array
+    p contains the input puzzle
+    goal
     
     return an array of this structure
     ['UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'DOWN']
     """
+    global puzzle
+    p = puzzle.initial
     
+    #implement the algorithm here
     
     return ['UP', 'DOWN', 'LEFT', 'RIGHT']
+
+
+
+
+
 
 def scramble():
     """Scrambles the puzzle starting from the goal state"""
