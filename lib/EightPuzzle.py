@@ -115,3 +115,26 @@ class EightPuzzle(Problem):
         h(n) = number of misplaced tiles """
 
         return sum(s != g for (s, g) in zip(node.state, self.goal))
+    
+
+
+    def h1(self, state): #manhattan distance 
+        total_distance = 0
+        for i in range(3):
+            for j in range(3):
+                tile = state[i * 3 + j]
+                if tile != 0:
+                    target_row = (tile - 1) // 3
+                    target_col = (tile - 1) % 3
+                    total_distance += abs(i - target_row) + abs(j - target_col)
+        return total_distance
+    
+
+    def h2(self, state):#misplaced tiles
+        misplaced_tiles = 0
+        for i in range(3):
+            for j in range(3):
+                tile = state[i * 3 + j]
+                if tile != 0 and tile != i * 3 + j + 1:
+                    misplaced_tiles += 1
+        return misplaced_tiles
